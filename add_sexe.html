@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Sexe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Ajouter un Sexe</h1>
+    <nav>
+        <a href="index.html">Liste des Individus</a> | 
+        <a href="index.html">Ajouter un Individu</a> | 
+        <a href="add_region.html">Ajouter une Région</a>
+    </nav>
+
+    <form id="sexe-form">
+        <input type="text" name="label" placeholder="Nom du sexe" required>
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $("#sexe-form").submit(function (e) {
+                e.preventDefault();
+                $.post("api.php?action=add_sexe", $(this).serialize(), function (response) {
+                    alert("Sexe ajouté avec succès !");
+                    $("#sexe-form")[0].reset(); // Réinitialiser le formulaire
+                });
+            });
+        });
+    </script>
+</body>
+</html>

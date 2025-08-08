@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter et Gérer les Individus</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Gestion des Individus</h1>
+
+    <section id="add-individu">
+        <h2>Ajouter un Individu</h2>
+        <form id="individu-form">
+            <input type="text" name="nom" placeholder="Nom" required>
+            <input type="text" name="prenom" placeholder="Prénom" required>
+            <input type="date" name="date_naissance" required>
+            <select name="sexe_id" id="sexe-select" required>
+                <option value="">-- Sélectionnez un Sexe --</option>
+            </select>
+            <select name="region_id" id="region-select" required>
+                <option value="">-- Sélectionnez une Région --</option>
+            </select>
+            <button type="submit">Ajouter</button>
+        </form>
+    </section>
+
+    <section id="individus-list">
+        <h2>Liste des Individus</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de Naissance</th>
+                    <th>Sexe</th>
+                    <th>Région</th>
+                    <th>Date d'Ajout</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="individus-table-body">
+                <!-- Les individus seront chargés ici via AJAX -->
+            </tbody>
+        </table>
+    </section>
+    <section id="manage-options">
+        <h2>Gérer les Options</h2>
+        <button onclick="window.location.href='add_region.html'">Ajouter une Région</button>
+        <button onclick="window.location.href='add_sexe.html'">Ajouter un Sexe</button>
+    </section>
+</body>
+</html>

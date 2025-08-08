@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Région</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Ajouter une Région</h1>
+    <nav>
+        <a href="index.html">Liste des Individus</a> | 
+        <a href="index.html">Ajouter un Individu</a> | 
+        <a href="add_sexe.html">Ajouter un Sexe</a>
+    </nav>
+
+    <form id="region-form">
+        <input type="text" name="nom" placeholder="Nom de la région" required>
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $("#region-form").submit(function (e) {
+                e.preventDefault();
+                $.post("api.php?action=add_region", $(this).serialize(), function (response) {
+                    alert("Région ajoutée avec succès !");
+                    $("#region-form")[0].reset(); // Réinitialiser le formulaire
+                });
+            });
+        });
+    </script>
+</body>
+</html>
